@@ -10,10 +10,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.red[900],
+          backgroundColor: Colors.red,
+          title: Center(child: Text('Dice App')),
         ),
         backgroundColor: Colors.red,
-        body: DicePage(),
+        body: SafeArea(child: DicePage()),
       ),
     );
   }
@@ -22,6 +23,31 @@ class MyApp extends StatelessWidget {
 class DicePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Center(
+      child: Row(
+        children: [
+          Expanded(
+              child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: TextButton(
+              onPressed: () {
+                print('hello');
+              },
+              child: Image.asset('images/dice1.png'),
+            ),
+          )),
+          Expanded(
+              child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: TextButton(
+              onPressed: () {
+                print('Bye');
+              },
+              child: Image.asset('images/dice2.png'),
+            ),
+          )),
+        ],
+      ),
+    );
   }
 }
